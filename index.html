@@ -10,56 +10,179 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <main class="page-shell">
+  <main class="page-frame">
     <section class="hero">
-      <p class="eyebrow">Project Page</p>
-      <h1>EviSearch: A Human in the Loop System for Extracting and Auditing Clinical Evidence for Systematic Reviews</h1>
-      <p class="authors">
-        Naman Ahuja<sup>1</sup>
-        Saniya Mulla<sup>2</sup>
-        Muhammad Ali Khan<sup>2</sup>
-        Zaryab Bin Riaz<sup>2</sup>
-        Kaneez Zahra Rubab Khakwani<sup>2</sup>
-        Mohamad Bassam Sonbol<sup>2</sup>
-        Irbaz Bin Riaz<sup>1</sup>
-        Vivek Gupta<sup>1</sup>
-      </p>
-      <p class="affiliations">
-        <span><sup>1</sup>Arizona State University</span>
-        <span><sup>2</sup>Mayo Clinic</span>
-      </p>
-      <div class="actions">
-        <a class="button" href="https://drive.google.com/file/d/139vl6N5pOr0COe2VgWlqm5THusgUGmt2/view" target="_blank" rel="noreferrer">Video</a>
-        <a class="button" href="https://evisearch-web-488637739109.us-central1.run.app/" target="_blank" rel="noreferrer">Demo</a>
-        <span class="button button-muted" aria-disabled="true">Paper Coming Soon</span>
+      <div class="hero-copy">
+        <p class="eyebrow">ACL Demo 2026 · Project Page</p>
+        <h1>EviSearch: A Human in the Loop System for Extracting and Auditing Clinical Evidence for Systematic Reviews</h1>
+        <p class="deck">
+          Systematic reviews depend on evidence that is not just extracted, but auditable. EviSearch turns clinical
+          trial PDFs into structured evidence tables by pairing direct PDF reasoning, retrieval-guided search, automated
+          reconciliation, and a review interface built for human validation.
+        </p>
+
+        <div class="actions">
+          <a class="button" href="https://drive.google.com/file/d/139vl6N5pOr0COe2VgWlqm5THusgUGmt2/view" target="_blank" rel="noreferrer">Watch Video</a>
+          <a class="button button-secondary" href="https://evisearch-web-488637739109.us-central1.run.app/" target="_blank" rel="noreferrer">Open Demo</a>
+          <span class="button button-muted" aria-disabled="true">Paper Link Coming Soon</span>
+        </div>
+
+        <p class="paper-note">The public paper URL will be added once the release is live.</p>
+
+        <div class="author-block">
+          <p class="authors">
+            Naman Ahuja<sup>1</sup>
+            Saniya Mulla<sup>2</sup>
+            Muhammad Ali Khan<sup>2</sup>
+            Zaryab Bin Riaz<sup>2</sup>
+            Kaneez Zahra Rubab Khakwani<sup>2</sup>
+            Mohamad Bassam Sonbol<sup>2</sup>
+            Irbaz Bin Riaz<sup>1</sup>
+            Vivek Gupta<sup>1</sup>
+          </p>
+          <p class="affiliations">
+            <span><sup>1</sup>Arizona State University</span>
+            <span><sup>2</sup>Mayo Clinic</span>
+          </p>
+        </div>
+      </div>
+
+      <aside class="hero-aside">
+        <div class="aside-card spotlight">
+          <p class="aside-label">What makes it different</p>
+          <ul class="feature-list">
+            <li>Native PDF querying that preserves layout, tables, and figure context</li>
+            <li>Dual extraction paths with forced reconciliation when answers disagree</li>
+            <li>Per-cell provenance so reviewers can inspect, audit, and correct outputs</li>
+          </ul>
+        </div>
+
+        <figure class="aside-card preview-card">
+          <img src="extraction_ui.png" alt="EviSearch extraction interface showing grouped column selection and extraction results">
+          <figcaption>Batch extraction across schema-defined evidence fields, with side-by-side method outputs and reviewer-facing results.</figcaption>
+        </figure>
+      </aside>
+    </section>
+
+    <section class="section section-intro">
+      <div class="section-heading">
+        <p class="section-kicker">Reading Note</p>
+        <h2>Clinical evidence extraction is a document problem, not a plain-text problem</h2>
+      </div>
+      <div class="two-column">
+        <p>
+          Trial evidence is scattered across prose, tables, figure captions, and visual plots. Some fields require
+          document-level judgment, while others depend on finding the exact table cell or chart label that supports a
+          reported value. That makes naive parsed-text extraction brittle, especially when downstream decisions depend
+          on trustworthy evidence.
+        </p>
+        <p>
+          EviSearch is designed around that reality. It combines a direct PDF query agent with a retrieval-guided
+          search agent, then reconciles disagreements through page-level verification. The final output is not just a
+          table of answers, but an auditable record that a clinician or reviewer can inspect and revise.
+        </p>
       </div>
     </section>
 
-    <section class="panel">
-      <h2>Overview</h2>
-      <p>
-        EviSearch is a human-in-the-loop, multi-agent system for extracting ontology-aligned evidence tables directly
-        from clinical trial PDFs. It combines document-aware querying, retrieval-guided evidence search, reconciliation
-        across agents, and auditable provenance so each extracted value can be reviewed against the source document.
+    <section class="section">
+      <div class="section-heading">
+        <p class="section-kicker">Architecture</p>
+        <h2>A multi-stage system centered on verification and human feedback</h2>
+      </div>
+      <p class="section-lead">
+        Users specify the schema or values to extract, the system runs parallel evidence gathering and reconciliation,
+        and the review interface exposes source-grounded outputs for final validation.
       </p>
+      <figure class="wide-figure">
+        <img src="architecture.png" alt="EviSearch system architecture showing user inputs, AI processing and retrieval, reconciliation, and human validation interface">
+        <figcaption>
+          The pipeline couples direct PDF reasoning with retrieval-based search, then routes disagreements through a
+          reconciliation module and a human validation layer that supports updates, feedback, and long-term storage.
+        </figcaption>
+      </figure>
     </section>
 
-    <section class="panel grid">
-      <article>
-        <h2>What The System Does</h2>
-        <p>
-          The pipeline parses clinical trial publications, runs parallel extraction agents over the document, resolves
-          disagreements through verification, and presents the resulting evidence table through a review interface for
-          auditing and feedback.
-        </p>
-      </article>
-      <article>
-        <h2>Why It Matters</h2>
-        <p>
-          Systematic reviews require reliable evidence extraction across narrative text, tables, and figures. EviSearch
-          is designed to reduce manual burden while preserving traceability for high-stakes clinical evidence workflows.
-        </p>
-      </article>
+    <section class="section">
+      <div class="section-heading">
+        <p class="section-kicker">Results</p>
+        <h2>Performance depends on modality, so the page should show the evidence mix too</h2>
+      </div>
+      <div class="visual-grid">
+        <figure class="media-card">
+          <img src="modality_dist.png" alt="Donut chart showing evidence source modality distribution across text, table, and figure">
+          <figcaption>
+            In the benchmark, most reported values come from running text, but a large share still depends on structured
+            tables. Figure-based evidence is less frequent, yet it is often the hardest to extract correctly.
+          </figcaption>
+        </figure>
+        <figure class="media-card">
+          <img src="modality_results.png" alt="Line chart comparing extraction performance across text, table, and figure modalities">
+          <figcaption>
+            EviSearch holds the strongest scores across all three evidence modalities, with the clearest separation on
+            figure-based extraction where layout and visual grounding matter most.
+          </figcaption>
+        </figure>
+      </div>
+
+      <div class="insight-strip">
+        <article class="insight-card">
+          <p class="insight-number">53.4%</p>
+          <p class="insight-copy">of reported evidence in the benchmark comes from narrative text rather than cleanly structured fields.</p>
+        </article>
+        <article class="insight-card">
+          <p class="insight-number">41.8%</p>
+          <p class="insight-copy">still relies on tables, which means robust extraction cannot ignore document structure.</p>
+        </article>
+        <article class="insight-card">
+          <p class="insight-number">86.7</p>
+          <p class="insight-copy">overall score on figure-sourced evidence for EviSearch, outperforming the compared baselines shown in the chart.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-heading">
+        <p class="section-kicker">Interface</p>
+        <h2>The review loop is part of the system, not a cleanup step</h2>
+      </div>
+      <p class="section-lead">
+        Reviewers can inspect extracted values, compare answers from different extraction paths, open the attributed
+        source region in the PDF, and correct outputs with feedback that can later support model improvement.
+      </p>
+      <div class="ui-grid">
+        <figure class="media-card tall">
+          <img src="extraction_ui.png" alt="EviSearch extraction UI with extraction results table">
+          <figcaption>
+            The extraction view groups schema fields into batches, runs multiple methods in parallel, and exposes the
+            resulting evidence table with method-level outputs.
+          </figcaption>
+        </figure>
+        <figure class="media-card tall">
+          <img src="attribution_ui.png" alt="EviSearch attribution interface showing source text from the PDF next to extracted answer">
+          <figcaption>
+            The attribution interface links answers back to source evidence in the PDF, making reconciliation and
+            human auditing practical rather than aspirational.
+          </figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section closing">
+      <div class="closing-card">
+        <div>
+          <p class="section-kicker">Artifacts</p>
+          <h2>Try the system, then come back for the paper release</h2>
+          <p>
+            This page is meant to work like a compact research note: a quick route into the live system, the demo
+            video, and the main figures that explain why the approach matters.
+          </p>
+        </div>
+        <div class="actions closing-actions">
+          <a class="button" href="https://evisearch-web-488637739109.us-central1.run.app/" target="_blank" rel="noreferrer">Launch Demo</a>
+          <a class="button button-secondary" href="https://drive.google.com/file/d/139vl6N5pOr0COe2VgWlqm5THusgUGmt2/view" target="_blank" rel="noreferrer">View Video</a>
+          <span class="button button-muted" aria-disabled="true">Paper Coming Soon</span>
+        </div>
+      </div>
     </section>
   </main>
 </body>
