@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EviSearch</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="page-shell">
+    <section class="hero">
+      <p class="eyebrow">Project Page</p>
+      <h1>EviSearch: A Human in the Loop System for Extracting and Auditing Clinical Evidence for Systematic Reviews</h1>
+      <p class="authors">
+        Naman Ahuja<sup>1</sup>
+        Saniya Mulla<sup>2</sup>
+        Muhammad Ali Khan<sup>2</sup>
+        Zaryab Bin Riaz<sup>2</sup>
+        Kaneez Zahra Rubab Khakwani<sup>2</sup>
+        Mohamad Bassam Sonbol<sup>2</sup>
+        Irbaz Bin Riaz<sup>1</sup>
+        Vivek Gupta<sup>1</sup>
+      </p>
+      <p class="affiliations">
+        <span><sup>1</sup>Arizona State University</span>
+        <span><sup>2</sup>Mayo Clinic</span>
+      </p>
+      <div class="actions">
+        <a class="button" href="https://drive.google.com/file/d/139vl6N5pOr0COe2VgWlqm5THusgUGmt2/view" target="_blank" rel="noreferrer">Video</a>
+        <a class="button" href="https://evisearch-web-488637739109.us-central1.run.app/" target="_blank" rel="noreferrer">Demo</a>
+        <span class="button button-muted" aria-disabled="true">Paper Coming Soon</span>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Overview</h2>
+      <p>
+        EviSearch is a human-in-the-loop, multi-agent system for extracting ontology-aligned evidence tables directly
+        from clinical trial PDFs. It combines document-aware querying, retrieval-guided evidence search, reconciliation
+        across agents, and auditable provenance so each extracted value can be reviewed against the source document.
+      </p>
+    </section>
+
+    <section class="panel grid">
+      <article>
+        <h2>What The System Does</h2>
+        <p>
+          The pipeline parses clinical trial publications, runs parallel extraction agents over the document, resolves
+          disagreements through verification, and presents the resulting evidence table through a review interface for
+          auditing and feedback.
+        </p>
+      </article>
+      <article>
+        <h2>Why It Matters</h2>
+        <p>
+          Systematic reviews require reliable evidence extraction across narrative text, tables, and figures. EviSearch
+          is designed to reduce manual burden while preserving traceability for high-stakes clinical evidence workflows.
+        </p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
